@@ -1,10 +1,25 @@
 ---
-# This is an example playbook to execute Ansible tests.
 
 - name: Verify
   hosts: all
   gather_facts: false
+
   tasks:
-  - name: Example assertion
-    assert:
-      that: true
+
+    - name: Check current java version
+      command: java -version
+      failed_when: no
+      changed_when: no
+      register: java_version
+
+    - name: Debug java_version
+      debug:
+        var: java_version
+
+    - name: Debug java_version
+      debug:
+        msg: "Installed java version: {{ java_version.stderr_lines[0] }}"
+
+    - name: Example assertion
+      assert:
+        that: true

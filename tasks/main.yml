@@ -1,37 +1,19 @@
 ---
 
-- name: Debug distro
-  debug:
-    var: ansible_distribution
-
-- name: Debug distro major
-  debug:
-    var: ansible_distribution_major_version
-
-- name: Check current java version
-  command: java -version
-  failed_when: no
-  changed_when: no
-  register: java_version
-
-- name: Debug java_version
-  debug:
-    var: java_version
-
 - name: Include distro specific vars
   include_vars: "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
-
-- name: Debug java_packages
-  debug:
-    var: java_packages
 
 - name: Include os specific tasks
   include_tasks: "{{ ansible_os_family }}.yml"
 
-- name: Install packages
+- name: Install java package(s)
   package:
     name: "{{ java_packages }}"
     state: present
 
-
-
+- name: Set JAVA_HOME
+  template:
+    src: java_home.j2
+    dest: /etc/profile.d/java_home.sh
+    mode: 0644
+  when: java_home | length
