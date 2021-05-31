@@ -20,6 +20,6 @@
       debug:
         msg: "Installed java version: {{ java_version.stderr_lines[0] }}"
 
-    - name: Example assertion
+    - name: Check output contains 'openjdk version'
       assert:
-        that: true
+        that: java_version.stderr_lines[0] is search("openjdk version")
