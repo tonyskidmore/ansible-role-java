@@ -1,10 +1,5 @@
 ---
 
-- name: Run apt update
-  apt:
-    allow_unauthenticated: yes
-    update_cache: yes
-
 - name: Create man directory
   file:
     path: /usr/share/man/man1
