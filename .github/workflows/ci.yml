@@ -48,7 +48,11 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies.
-        run: pip3 install ansible==2.9.22 molecule[podman,lint]
+        run: |
+          pip3 install --upgrade pip
+          pip3 install --upgrade setuptools
+          pip3 install ansible==2.9.22 
+          pip3 install molecule[podman,lint]
 
       - name: Run Molecule tests.
         run: molecule test
