@@ -2,6 +2,7 @@
 
 - name: Run apt update
   apt:
+    allow_unauthenticated: yes
     update_cache: yes
 
 - name: Create man directory
