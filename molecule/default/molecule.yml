@@ -78,8 +78,8 @@ platforms:
     command: "/lib/systemd/systemd"
     pre_build_image: true
   - name: ubuntu20.04
-    # image: geerlingguy/docker-ubuntu2004-ansible:latest
-    image: docker.pkg.github.com/tonyskidmore/ci-ubuntu2004-ansible/ci-ubuntu2004-ansible:sha-871e3ef
+    image: geerlingguy/docker-ubuntu2004-ansible:latest
+    #image: docker.pkg.github.com/tonyskidmore/ci-ubuntu2004-ansible/ci-ubuntu2004-ansible:sha-871e3ef
     tmpfs:
       - /run
       - /tmp
