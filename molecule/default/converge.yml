@@ -5,13 +5,13 @@
 
   pre_tasks:
 
-    - name: Run apt update
-      apt:
-        # force: yes
-        update_cache: yes
-        cache_valid_time: 600
-      when:
-        ansible_os_family == 'Debian'
+    # - name: Run apt update
+    #   apt:
+    #     # force: yes
+    #     update_cache: yes
+    #     cache_valid_time: 600
+    #   when:
+    #     ansible_os_family == 'Debian'
 
     # - name: Run apt update
     #   command: apt-get update -y --allow-insecure-repositories
