@@ -15,6 +15,7 @@
 
     - name: Run apt update
       command: apt-get update -y --allow-insecure-repositories
+      become: yes
       when:
         ansible_os_family == 'Debian'
 
