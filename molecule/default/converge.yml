@@ -14,7 +14,7 @@
     #     ansible_os_family == 'Debian'
 
     - name: Run apt update
-      command: apt-get update -y --allow-unauthenicated
+      command: apt-get update -y --allow-insecure-repositories
       when:
         ansible_os_family == 'Debian'
 
