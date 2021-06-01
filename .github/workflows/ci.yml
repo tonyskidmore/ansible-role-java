@@ -64,7 +64,7 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
           python3 -m pip install --upgrade setuptools
-          python3 -m pip install ansible==2.9.22 
+          python3 -m pip install ansible==2.9.22
           python3 -m pip install molecule[podman,lint]
 
       - name: Run Molecule tests.
