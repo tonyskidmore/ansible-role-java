@@ -20,13 +20,14 @@ jobs:
     strategy:
       matrix:
         include:
+          - image: ghcr.io/tonyskidmore/ci-ubuntu2004-ansible:latest
           # - distro: centos8
           #   playbook: converge.yml
-          - distro: centos7
+          # - distro: centos7
           #   playbook: converge.yml
           # - distro: ubuntu2004
           #   playbook: converge.yml
-          - distro: ubuntu1804
+          # - distro: ubuntu1804
           #   playbook: converge.yml
           # - distro: debian10
           #   playbook: converge.yml
@@ -72,5 +73,5 @@ jobs:
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
-          MOLECULE_DISTRO: ${{ matrix.distro }}
+          MOLECULE_IMAGE: ${{ matrix.image }}
           # MOLECULE_PLAYBOOK: ${{ matrix.playbook }}
