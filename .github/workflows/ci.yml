@@ -22,17 +22,16 @@ jobs:
         include:
           # - distro: centos8
           #   playbook: converge.yml
-          # - distro: centos7
+          - distro: centos7
           #   playbook: converge.yml
-          - distro: ubuntu2004
-          #  playbook: converge.yml
+          # - distro: ubuntu2004
+          #   playbook: converge.yml
           # - distro: ubuntu1804
           #   playbook: converge.yml
           # - distro: debian10
           #   playbook: converge.yml
           # - distro: debian9
           #   playbook: converge.yml
-
           # - distro: centos7
           #   playbook: source-install.yml
 

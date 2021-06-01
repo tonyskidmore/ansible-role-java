@@ -5,8 +5,8 @@ dependency:
 driver:
   name: podman
 platforms:
-  - name: centos7
-    image: tonyskidmore/docker-centos7-ansible:latest
+  - name: instance
+    image: tonyskidmore/docker-${MOLECULE_DISTRO:-centos7-ansible}-ansible:latest
     tmpfs:
       - /run
       - /tmp
@@ -17,79 +17,6 @@ platforms:
     privileged: false
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: centos8
-    image: tonyskidmore/docker-centos8-ansible:latest
-    tmpfs:
-      - /run
-      - /tmp
-    pre_build_image: true
-    command: /sbin/init
-    capabilities:
-      - SYS_ADMIN
-    privileged: false
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: rhel7
-    image: registry.access.redhat.com/ubi7/ubi-init:latest
-    tmpfs:
-      - /run
-      - /tmp
-    pre_build_image: true
-    command: /sbin/init
-    capabilities:
-      - SYS_ADMIN
-    privileged: false
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: rhel8
-    image: registry.access.redhat.com/ubi8/ubi-init:latest
-    tmpfs:
-      - /run
-      - /tmp
-    pre_build_image: true
-    command: /sbin/init
-    capabilities:
-      - SYS_ADMIN
-    privileged: false
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: ubuntu16.04
-    image: tonyskidmore/docker-ubuntu1604-ansible:latest
-    tmpfs:
-      - /run
-      - /tmp
-    privileged: false
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    capabilities:
-      - SYS_ADMIN
-    command: "/lib/systemd/systemd"
-    pre_build_image: true
-  - name: ubuntu18.04
-    image: tonyskidmore/docker-ubuntu1804-ansible:latest
-    tmpfs:
-      - /run
-      - /tmp
-    privileged: false
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    capabilities:
-      - SYS_ADMIN
-    command: "/lib/systemd/systemd"
-    pre_build_image: true
-  - name: ubuntu20.04
-    image: geerlingguy/docker-ubuntu2004-ansible:latest
-    #image: docker.pkg.github.com/tonyskidmore/ci-ubuntu2004-ansible/ci-ubuntu2004-ansible:sha-871e3ef
-    tmpfs:
-      - /run
-      - /tmp
-    privileged: false
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    capabilities:
-      - SYS_ADMIN
-    command: "/lib/systemd/systemd"
-    pre_build_image: true
 provisioner:
   name: ansible
 verifier:
