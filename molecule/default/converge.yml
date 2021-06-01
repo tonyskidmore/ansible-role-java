@@ -2,7 +2,19 @@
 
 - name: Converge
   hosts: all
+
+  pre_tasks:
+
+    - name: Run apt update
+      apt:
+        allow_unauthenticated: yes
+        update_cache: yes
+        cache_valid_time: 600
+      when:
+        ansible_os_family == 'Debian'
+
   tasks:
+
     - name: "Include ansible-role-java"
       include_role:
         name: "ansible-role-java"
