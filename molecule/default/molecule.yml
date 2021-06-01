@@ -7,9 +7,9 @@ driver:
 platforms:
   - name: instance
     image: tonyskidmore/docker-${MOLECULE_DISTRO:-centos7-ansible}-ansible:latest
-    tmpfs:
-      - /run
-      - /tmp
+    # tmpfs:
+    #   - /run
+    #   - /tmp
     pre_build_image: true
     command: /sbin/init
     capabilities:
