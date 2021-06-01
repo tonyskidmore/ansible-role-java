@@ -7,9 +7,9 @@ driver:
 platforms:
   - name: instance
     image: ${MOLECULE_IMAGE:-ghcr.io/tonyskidmore/ci-ubuntu2004-ansible:latest}
-    tmpfs:
-      - /run
-      - /tmp
+    # tmpfs:
+    #   - /run
+    #   - /tmp
     pre_build_image: true
     command: /sbin/init
     capabilities:
