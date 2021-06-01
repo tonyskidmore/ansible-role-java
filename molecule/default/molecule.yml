@@ -14,7 +14,7 @@ platforms:
     command: /sbin/init
     capabilities:
       - SYS_ADMIN
-    privileged: false
+    privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:
