@@ -11,7 +11,7 @@ platforms:
     #   - /run
     #   - /tmp
     pre_build_image: true
-    command: /sbin/init
+    # command: /sbin/init
     # capabilities:
     #   - SYS_ADMIN
     privileged: true
