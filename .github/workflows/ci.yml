@@ -60,13 +60,13 @@ jobs:
 
       - name: Get podman version
         run: |
-          command -v podman
-          podman --version
+          command -v podman  || echo "not found"
+          podman --version  || echo "not found"
 
       - name: Get ansible version
         run: |
           command -v ansible || echo "not found"
-          ansible --version || echo "not found"
+          ansible --version || echo "Ansible not found"
 
       - name: Install test dependencies.
         run: |
