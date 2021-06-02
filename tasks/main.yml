@@ -2,7 +2,7 @@
 
 - name: Show platform
   debug:
-    msg: "Running on: {{ ansible_distribution }} "
+    msg: "Running on: {{ ansible_distribution }} {{ ansible_major_distribution }} "
 
 - name: Include distro specific vars
   include_vars: "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
