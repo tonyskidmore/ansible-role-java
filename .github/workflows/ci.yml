@@ -22,6 +22,7 @@ jobs:
         include:
           - image: ghcr.io/tonyskidmore/ci-ubuntu2004-ansible:latest
           - image: registry.access.redhat.com/ubi8/ubi-init:latest
+          - image: tonyskidmore/docker-ubuntu1804-ansible:latest
           # - distro: centos8
           #   playbook: converge.yml
           # - distro: centos7
@@ -64,8 +65,8 @@ jobs:
 
       - name: Get ansible version
         run: |
-          command -v podman
-          podman --version
+          command -v ansible || echo "not found"
+          ansible --version || echo "not found"
 
       - name: Install test dependencies.
         run: |
