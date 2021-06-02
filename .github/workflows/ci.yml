@@ -21,8 +21,6 @@ jobs:
       matrix:
         include:
           - image: ghcr.io/tonyskidmore/ci-ubuntu2004-ansible:latest
-          - image: registry.access.redhat.com/ubi7/ubi-init:latest
-          - image: registry.access.redhat.com/ubi8/ubi-init:latest
 
           # - distro: centos8
           #   playbook: converge.yml
